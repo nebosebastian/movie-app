@@ -1,0 +1,132 @@
+DEBUG:root:This message will be recorded.
+INFO:root:This message will be recorded.
+WARNING:root:This message will be recorded.
+ERROR:root:This message will be recorded.
+CRITICAL:root:This message will be recorded.
+2024-08-15 18:25:55,237 DEBUG root: This message will be recorded.
+2024-08-15 18:25:55,237 INFO root: This message will be recorded.
+2024-08-15 18:25:55,237 WARNING root: This message will be recorded.
+2024-08-15 18:25:55,237 ERROR root: This message will be recorded.
+2024-08-15 18:25:55,237 CRITICAL root: This message will be recorded.
+2024-08-15 18:31:15,589 DEBUG __main__: This message will be recorded.
+2024-08-15 18:31:15,589 INFO __main__: This message will be recorded.
+2024-08-15 18:31:15,590 WARNING __main__: This message will be recorded.
+2024-08-15 18:31:15,590 ERROR __main__: This message will be recorded.
+2024-08-15 18:31:15,590 CRITICAL __main__: This message will be recorded.
+2024-08-16 12:12:43,181 INFO app.main: signing up
+2024-08-16 12:12:43,181 WARNING passlib.handlers.bcrypt: (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\neboc\AppData\Local\Programs\Python\Python312\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-08-16 12:12:43,182 DEBUG passlib.handlers.bcrypt: detected 'bcrypt' backend, version '<unknown>'
+2024-08-16 12:12:43,183 DEBUG passlib.handlers.bcrypt: 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-08-16 12:13:20,912 INFO app.main: signing up
+2024-08-16 12:13:21,133 INFO app.main: user created
+2024-08-16 12:15:32,577 INFO app.main: signing up
+2024-08-16 12:15:32,578 WARNING passlib.handlers.bcrypt: (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\neboc\AppData\Local\Programs\Python\Python312\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-08-16 12:15:32,579 DEBUG passlib.handlers.bcrypt: detected 'bcrypt' backend, version '<unknown>'
+2024-08-16 12:15:32,579 DEBUG passlib.handlers.bcrypt: 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-08-16 12:16:06,326 INFO app.main: signing up
+2024-08-16 12:16:06,544 INFO app.main: user created
+2024-08-16 12:42:37,522 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,523 DEBUG multipart.multipart: Calling on_field_name with data[0:10]
+2024-08-16 12:42:37,523 DEBUG multipart.multipart: Calling on_field_data with data[11:19]
+2024-08-16 12:42:37,523 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_name with data[20:28]
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_data with data[29:34]
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,524 DEBUG multipart.multipart: Calling on_field_name with data[35:43]
+2024-08-16 12:42:37,525 DEBUG multipart.multipart: Calling on_field_data with data[44:49]
+2024-08-16 12:42:37,525 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,525 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,525 DEBUG multipart.multipart: Calling on_field_name with data[50:55]
+2024-08-16 12:42:37,525 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,526 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,526 DEBUG multipart.multipart: Calling on_field_name with data[57:66]
+2024-08-16 12:42:37,526 DEBUG multipart.multipart: Calling on_field_data with data[67:73]
+2024-08-16 12:42:37,527 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,527 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:42:37,527 DEBUG multipart.multipart: Calling on_field_name with data[74:87]
+2024-08-16 12:42:37,528 DEBUG multipart.multipart: Calling on_field_data with data[88:94]
+2024-08-16 12:42:37,528 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:42:37,528 DEBUG multipart.multipart: Calling on_end with no data
+2024-08-16 12:42:37,539 INFO app.main: logining in
+2024-08-16 12:42:37,552 WARNING passlib.handlers.bcrypt: (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\neboc\AppData\Local\Programs\Python\Python312\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-08-16 12:42:37,553 DEBUG passlib.handlers.bcrypt: detected 'bcrypt' backend, version '<unknown>'
+2024-08-16 12:42:37,553 DEBUG passlib.handlers.bcrypt: 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-08-16 12:42:37,781 INFO app.main: Login succesful
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_name with data[0:10]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_data with data[11:19]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_name with data[20:28]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_data with data[29:34]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_name with data[35:43]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_data with data[44:49]
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:43:06,219 DEBUG multipart.multipart: Calling on_end with no data
+2024-08-16 12:43:06,220 INFO app.main: logining in
+2024-08-16 12:43:06,421 INFO app.main: Login succesful
+2024-08-16 12:47:09,099 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_name with data[0:10]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_data with data[11:19]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_name with data[20:28]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_data with data[29:35]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_name with data[36:44]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_data with data[45:51]
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:47:09,100 DEBUG multipart.multipart: Calling on_end with no data
+2024-08-16 12:47:09,101 INFO app.main: logining in
+2024-08-16 12:47:09,300 INFO app.main: Login succesful
+2024-08-16 12:51:04,415 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:51:04,416 DEBUG multipart.multipart: Calling on_field_name with data[0:10]
+2024-08-16 12:51:04,416 DEBUG multipart.multipart: Calling on_field_data with data[11:19]
+2024-08-16 12:51:04,417 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:51:04,417 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:51:04,417 DEBUG multipart.multipart: Calling on_field_name with data[20:28]
+2024-08-16 12:51:04,417 DEBUG multipart.multipart: Calling on_field_data with data[29:35]
+2024-08-16 12:51:04,418 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:51:04,418 DEBUG multipart.multipart: Calling on_field_start with no data
+2024-08-16 12:51:04,418 DEBUG multipart.multipart: Calling on_field_name with data[36:44]
+2024-08-16 12:51:04,418 DEBUG multipart.multipart: Calling on_field_data with data[45:51]
+2024-08-16 12:51:04,419 DEBUG multipart.multipart: Calling on_field_end with no data
+2024-08-16 12:51:04,419 DEBUG multipart.multipart: Calling on_end with no data
+2024-08-16 12:51:04,435 INFO app.main: logining in
+2024-08-16 12:51:04,455 WARNING passlib.handlers.bcrypt: (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\neboc\AppData\Local\Programs\Python\Python312\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2024-08-16 12:51:04,456 DEBUG passlib.handlers.bcrypt: detected 'bcrypt' backend, version '<unknown>'
+2024-08-16 12:51:04,456 DEBUG passlib.handlers.bcrypt: 'bcrypt' backend lacks $2$ support, enabling workaround
+2024-08-16 12:51:04,685 INFO app.main: Login succesful
+2024-08-16 12:58:48,557 DEBUG app.logger: This is a debug message
+2024-08-16 12:58:48,581 INFO app.logger: This is an info message
+2024-08-16 12:58:48,581 WARNING app.logger: This is a warning message
+2024-08-16 12:58:48,581 WARNING app.logger: This is a warning message
+2024-08-16 12:58:48,582 ERROR app.logger: This is an error message
+2024-08-16 12:58:48,582 ERROR app.logger: This is an error message
+2024-08-16 12:58:48,582 CRITICAL app.logger: This is a critical message
+2024-08-16 12:58:48,582 CRITICAL app.logger: This is a critical message
