@@ -1,27 +1,16 @@
-version: '3.8'
-
+version: '3'
 services:
   db:
-    image: postgres:13
+    image: mysql:5.7
     environment:
-      POSTGRES_DB: mydatabase
-      POSTGRES_USER: myuser
-      POSTGRES_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mydatabase
     ports:
-      - "5432:5432"
-    networks:
-      - mynetwork
-
+      - "3306:3306"
+  
   api:
     build: .
     environment:
-      DATABASE_URL: postgres://myuser:mypassword@db/mydatabase
-    ports:
-      - "8000:8000"
+      DATABASE_URL: mysql+pymysql://root:example@db/mydatabase
     depends_on:
       - db
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
