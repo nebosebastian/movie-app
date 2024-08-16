@@ -1,38 +1,23 @@
-version: '3.8'  # Specify the Docker Compose version
+version: '3.8'
 
 services:
   api:
     build:
-      context: C:\Users\neboc\Desktop\capstone
-      dockerfile: Dockerfile
-    depends_on:
-      db:
-        condition: service_healthy
-    environment:
-      ENV: development
-    networks:
-      - default
+      context: .  # This should point to the directory containing your Dockerfile and app code
     ports:
       - "5000:5000"
     volumes:
       - type: bind
-        source: C:\Users\neboc\Desktop\capstone
+        source: .
         target: /app
-        bind:
-          create_host_path: true
+    environment:
+      ENV: development
 
   db:
-    container_name: api_db
+    image: mysql
     environment:
       MYSQL_DATABASE: mydatabase
       MYSQL_ROOT_PASSWORD: example
-    image: mysql
-    networks:
-      - default
     ports:
       - "3306:3306"
     restart: always
-
-networks:
-  default:
-    name: capstone_default
