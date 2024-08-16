@@ -3,12 +3,14 @@ version: '3.1'
 services:
   db:
     image: mysql
-    container_name: api_db  # This should be under the 'db' service
+    container_name: api_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mydatabase  # This will create a database named 'mydatabase'
     ports:
       - "3306:3306"
+
 
   api:
     build:
