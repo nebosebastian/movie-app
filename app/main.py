@@ -172,3 +172,4 @@ async def read_comments(user_id: Optional[int] = None, movie_id: Optional[int] =
 @app.post("/comments/reply/", tags=["Movies"])
 def create_reply(reply: schemas.ReplyCreate, db: Session = Depends(get_db), current_user: int = Depends(get_current_user)):
     return crud.reply_to_comment(db, user_id=current_user.id, comment_id=reply.comment_id, comment=reply.comment)
+
