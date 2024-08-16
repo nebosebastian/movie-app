@@ -1,26 +1,38 @@
-version: '3.1'
+version: '3.8'  # Specify the Docker Compose version
 
 services:
-  db:
-    image: mysql
-    container_name: api_db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: mydatabase  # This will create a database named 'mydatabase'
-    ports:
-      - "3306:3306"
-
-
   api:
     build:
-      context: .
+      context: C:\Users\neboc\Desktop\capstone
       dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENV: development
+    networks:
+      - default
     ports:
       - "5000:5000"
     volumes:
-      - .:/app  # Fix the volume path to be a correct mapping
+      - type: bind
+        source: C:\Users\neboc\Desktop\capstone
+        target: /app
+        bind:
+          create_host_path: true
+
+  db:
+    container_name: api_db
     environment:
-      - ENV=development
-    depends_on:
-      - db  # This should match the service name 'db'
+      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_PASSWORD: example
+    image: mysql
+    networks:
+      - default
+    ports:
+      - "3306:3306"
+    restart: always
+
+networks:
+  default:
+    name: capstone_default
