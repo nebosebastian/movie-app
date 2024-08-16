@@ -1,23 +1,27 @@
 version: '3.8'
 
 services:
-  api:
-    build:
-      context: .  # This should point to the directory containing your Dockerfile and app code
-    ports:
-      - "5000:5000"
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-    environment:
-      ENV: development
-
   db:
-    image: mysql
+    image: postgres:13
     environment:
-      MYSQL_DATABASE: mydatabase
-      MYSQL_ROOT_PASSWORD: example
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
     ports:
-      - "3306:3306"
-    restart: always
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgres://myuser:mypassword@db/mydatabase
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

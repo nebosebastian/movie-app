@@ -1,21 +1,23 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11-slim
+# Use a base image
+FROM python:3.12
 
-# Set the working directory in the container
+# Install MySQL development libraries
+RUN apt-get update && apt-get install -y \
+    default-libmysqlclient-dev \
+    build-essential
+
+# Set up your working directory
 WORKDIR /app
 
-# Install the latest version of pip
-RUN pip install --upgrade pip
-
-# Copy the current directory contents into the container at /app
-COPY . .
-
-# Copy the requirements file and install dependencies
+# Copy your requirements file
 COPY requirements.txt .
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 8000
-EXPOSE 8000
+# Copy your application code
+COPY . .
 
-# Run the application
+# Expose port and run your application
+EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
