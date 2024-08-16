@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    container_name: api_db  # This should be under the 'db' service
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "3306:3306"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app  # Fix the volume path to be a correct mapping
+    environment:
+      - ENV=development
+    depends_on:
+      - db  # This should match the service name 'db'

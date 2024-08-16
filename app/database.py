@@ -12,7 +12,6 @@ URL_DATABASE = os.environ.get('URL_DATABASE')
 
 engine = create_engine(URL_DATABASE)
 
-# Fix the typo in 'autocommit'
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
 Base = declarative_base()
