@@ -128,16 +128,11 @@ async def update_movie(
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Movie not found")
     return movie
 
-@app.delete("/movies/{movie_id}", response_model=schemas.Movie, tags=["Movies"])
-async def delete_movie(
-    movie_id: int,
-    db: Session = Depends(get_db),
-    current_user: models.User = Depends(get_current_user)
-):
-    movie = crud.delete_movie(db, movie_id, current_user.id)
-    if movie is None:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Movie not found")
-    return movie
+@app.delete("/movies/{movie_id}", response_model=schemas.Movie, tags=["Movies"] )
+def delete_movie(movie_id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    return crud.delete_movie(db, movie_id, current_user.id)
+
+
 
 # Rating endpoints
 @app.post("/ratings/", response_model=schemas.Rating, tags=["Movies"], status_code=status.HTTP_201_CREATED)

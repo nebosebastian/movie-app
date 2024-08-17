@@ -4,10 +4,10 @@ from typing import Optional
 from jose import jwt
 import datetime
 from passlib.context import CryptContext
-from app.schemas import UserCreate, User, Token, TokenData
-from app.database import get_db
+from schemas import UserCreate, User, Token, TokenData
+from database import get_db
 from sqlalchemy.orm import Session
-import app.crud as crud
+import crud as crud
 
 import os
 from dotenv import load_dotenv

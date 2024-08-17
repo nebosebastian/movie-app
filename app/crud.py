@@ -29,13 +29,13 @@ def get_user_by_username(db: Session, username: str):
 
 
 # Movie CRUD operations
-def delete_movie(db: Session, movie_id: int, current_user: models.User):
-    movie = db.query(models.Movie).filter(models.Movie.id == movie_id).first()
-    if not movie:
-        return None
-    db.delete(movie)
-    db.commit()
-    return movie
+def delete_movie(db: Session, movie_id: int, user_id: int):
+    movie = db.query(models.Movie).filter(models.Movie.id == movie_id, models.Movie.created_by == user_id).first()
+    if movie:
+        db.delete(movie)
+        db.commit()
+        return movie
+    return None
 
 def update_movie(db: Session, movie_id: int, movie_update: schemas.MoviesUpdate, current_user: models.User):
     movie = db.query(models.Movie).filter(models.Movie.id == movie_id).first()

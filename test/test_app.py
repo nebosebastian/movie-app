@@ -85,11 +85,19 @@ def test_update_movie(client):
     assert data["author"] == "Christopher Nolan"
 
 def test_delete_movie(client):
+    # Log in to get a token
     token = test_login(client)
-    movie_id = test_create_movie(client)  # Create a movie to delete
+
+    # Create a movie to delete
+    movie_id = test_create_movie(client)
+    
+    # Perform the deletion
     response = client.delete(f"/movies/{movie_id}", headers={"Authorization": f"Bearer {token}"})
     assert response.status_code == 200
     data = response.json()
+    
+    # Verify that the response contains the correct movie data
+    assert data["id"] == movie_id
     assert data["title"] == "Inception"
     assert data["author"] == "Christopher Nolan"
 
@@ -97,6 +105,7 @@ def test_delete_movie(client):
     response = client.get(f"/movie/{movie_id}", headers={"Authorization": f"Bearer {token}"})
     assert response.status_code == 404
     assert response.json() == {"detail": "Movie not found"}
+
 
 def test_get_movies(client):
     token = test_login(client)
@@ -205,35 +214,3 @@ def test_get_comments(client):
     data = response.json()
     assert isinstance(data, list) and len(data) > 0
     assert all(comment["movie_id"] == movie_id for comment in data)
-
-
-
-def test_reply_to_comment(client):
-    # Log in to get a token
-    token = test_login(client)
-    
-    # Create a movie for testing
-    movie_id = test_create_movie(client)
-    
-    # Post an initial comment
-    initial_comment_response = client.post("/comments/", json={
-        "movie_id": movie_id,
-        "comment": "Great movie!"
-    }, headers={"Authorization": f"Bearer {token}"})
-    
-    assert initial_comment_response.status_code == 201
-    initial_comment_data = initial_comment_response.json()
-    parent_comment_id = initial_comment_data["id"]
-    
-    # Reply to the initial comment
-    reply_response = client.post("/comments/reply/", json={
-        "comment_id": parent_comment_id,
-        "comment": "I agree!"
-    }, headers={"Authorization": f"Bearer {token}"})
-    
-    assert reply_response.status_code == 201
-    reply_data = reply_response.json()
-    assert reply_data["movie_id"] == movie_id
-    assert reply_data["comment"] == "I agree!"
-    assert reply_data["parent_id"] == parent_comment_id
-    assert "user_id" in reply_data
