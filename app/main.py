@@ -68,6 +68,10 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 
     return user
 
+@app.route("/home/",)
+async def home():
+    return {"message":"Welcome"}
+
 @app.post("/signup", response_model=schemas.User, status_code=status.HTTP_201_CREATED, tags=["User"])
 async def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
     logger.info("signing up")
