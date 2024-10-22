@@ -2,7 +2,7 @@
   base = "app"  # Optional: specify the base directory if your app is inside a subfolder
   publish = "public"  # Adjust this to the directory where static content is generated
   functions = "netlify/functions"  # If you are using Netlify Functions
-  command = "pip install -r requirements.txt"
+  
 
 [context.production]
   environment = {PYTHON_VERSION = "3.8"}
