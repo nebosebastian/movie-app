@@ -18,3 +18,4 @@ python-multipart==0.0.9
 SQLAlchemy==2.0.32
 uvicorn==0.30.6
 psycopg2-binary==2.9.9
+python==3.8
