@@ -68,9 +68,9 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 
     return user
 
-@app.route("/home/",)
-async def home():
-    return {"message":"Welcome"}
+@app.get("/", tags=["Home"])
+def home():
+    return {"message":"Welcome to my first API service"}
 
 @app.post("/signup", response_model=schemas.User, status_code=status.HTTP_201_CREATED, tags=["User"])
 async def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
@@ -94,9 +94,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
     logger.info("Login succesful")
     return {"access_token": access_token, "token_type": "bearer"}
 
-@app.get("/home/")
-def home():
-    return {"message":"Welcome to my first API server"}
+
 
 # Movies endpoints
 @app.get("/movies/", response_model=List[schemas.Movie], tags=["Movies"])
