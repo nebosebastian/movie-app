@@ -94,6 +94,9 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
     logger.info("Login succesful")
     return {"access_token": access_token, "token_type": "bearer"}
 
+@app.get("/home/")
+def home():
+    return {"message":"Welcome to my first API server"}
 
 # Movies endpoints
 @app.get("/movies/", response_model=List[schemas.Movie], tags=["Movies"])
