@@ -70,14 +70,17 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 
 @app.get("/", tags=["Home"])
 def home():
-    return {"message":"Welcome to my first API server"}
+    return {"message":"Welcome to my first API service"}
 
 @app.post("/signup", response_model=schemas.User, status_code=status.HTTP_201_CREATED, tags=["User"])
 async def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    logger.info("signing up")
+    logger.info("Signing up")
+    existing_user = crud.get_user_by_username(db, user.username)
+    if existing_user:
+        logger.warning("User already exists")
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="Username already taken")
     created_user = crud.create_user(db=db, user=user)
-    print(f"Created User: {created_user}") 
-    logger.info("user created")
+    logger.info("User created successfully")
     return created_user
 
 
@@ -87,7 +90,7 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = 
     logger.info("logining in")
     user = crud.get_user_by_username(db, form_data.username)
     if not user or not verify_password(form_data.password, user.hashed_password):
-        logger.warning("You do not have an account")
+        logger.warning("Failed login attempt")
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect username or password")
     access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(data={"sub": user.username}, expires_delta=access_token_expires)
