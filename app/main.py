@@ -70,7 +70,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 
 @app.get("/", tags=["Home"])
 def home():
-    return {"message":"Welcome to my first API service"}
+    return {"message":"Welcome to my first API server"}
 
 @app.post("/signup", response_model=schemas.User, status_code=status.HTTP_201_CREATED, tags=["User"])
 async def signup(user: schemas.UserCreate, db: Session = Depends(get_db)):
