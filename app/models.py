@@ -52,4 +52,3 @@ class Comment(Base):
     user = relationship("User")
     movie = relationship("Movie", back_populates="comments")
     parent = relationship("Comment", remote_side=[id], backref='replies')
-    
